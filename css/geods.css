@@ -6,7 +6,6 @@
 *{ margin:0; padding:0; box-sizing:border-box; }
 
 :root{
-    /* base */
     --ink:#0b0f14;
     --ink-soft:#10151c;
     --text:#ffffff;
@@ -14,22 +13,18 @@
     --text-faint:#7f8b96;
     --line:rgba(255,255,255,.1);
 
-    /* identidade — Património (mantém o azul já existente no atlas) */
     --patrimonio-deep:#1d3557;
     --patrimonio-mid:#2196f3;
     --patrimonio-glow:#64b5f6;
 
-    /* identidade — Minas e Pedreiras (mármore do anticlinal de Estremoz) */
     --minas-deep:#3a2c29;
     --minas-mid:#c98f82;
     --minas-glow:#e8c9bd;
 
-    /* identidade — Cidades e Território (paisagem, sobreiro, mapa) */
     --cidades-deep:#243019;
     --cidades-mid:#7c8f57;
     --cidades-glow:#b7c98a;
 
-    /* identidade — Pradarias e Zonas Costeiras (dunas, sapal, litoral) */
     --pradarias-deep:#12332e;
     --pradarias-mid:#3fa79a;
     --pradarias-glow:#8fd9cd;
@@ -123,17 +118,43 @@ a{ color:inherit; }
     background:rgba(255,255,255,.08);
 }
 
-.geods-links a.nav-minas .dot{ background:var(--minas-glow); }
-.geods-links a.nav-patrimonio .dot{ background:var(--patrimonio-glow); }
-.geods-links a.nav-cidades .dot{ background:var(--cidades-glow); }
-.geods-links a.nav-pradarias .dot{ background:var(--pradarias-glow); }
+.geods-links a.nav-minas .dot{
+    background:var(--minas-glow);
+}
 
-.geods-links a.nav-minas:hover, .geods-links a.nav-minas.active{ box-shadow:inset 0 0 0 1px rgba(201,143,130,.4); }
-.geods-links a.nav-patrimonio:hover, .geods-links a.nav-patrimonio.active{ box-shadow:inset 0 0 0 1px rgba(100,181,246,.4); }
-.geods-links a.nav-cidades:hover, .geods-links a.nav-cidades.active{ box-shadow:inset 0 0 0 1px rgba(183,201,138,.4); }
-.geods-links a.nav-pradarias:hover, .geods-links a.nav-pradarias.active{ box-shadow:inset 0 0 0 1px rgba(143,217,205,.4); }
+.geods-links a.nav-patrimonio .dot{
+    background:var(--patrimonio-glow);
+}
 
-/* ---------- HERO (homepage) ---------- */
+.geods-links a.nav-cidades .dot{
+    background:var(--cidades-glow);
+}
+
+.geods-links a.nav-pradarias .dot{
+    background:var(--pradarias-glow);
+}
+
+.geods-links a.nav-minas:hover,
+.geods-links a.nav-minas.active{
+    box-shadow:inset 0 0 0 1px rgba(201,143,130,.4);
+}
+
+.geods-links a.nav-patrimonio:hover,
+.geods-links a.nav-patrimonio.active{
+    box-shadow:inset 0 0 0 1px rgba(100,181,246,.4);
+}
+
+.geods-links a.nav-cidades:hover,
+.geods-links a.nav-cidades.active{
+    box-shadow:inset 0 0 0 1px rgba(183,201,138,.4);
+}
+
+.geods-links a.nav-pradarias:hover,
+.geods-links a.nav-pradarias.active{
+    box-shadow:inset 0 0 0 1px rgba(143,217,205,.4);
+}
+
+/* ---------- HERO ---------- */
 
 .hero{
     padding:72px 24px 40px;
@@ -162,7 +183,12 @@ a{ color:inherit; }
 .hero h1 em{
     font-style:italic;
     font-weight:400;
-    background:linear-gradient(120deg,var(--minas-glow),var(--patrimonio-glow) 50%,var(--cidades-glow));
+    background:linear-gradient(
+        120deg,
+        var(--minas-glow),
+        var(--patrimonio-glow) 50%,
+        var(--cidades-glow)
+    );
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -175,7 +201,7 @@ a{ color:inherit; }
     line-height:1.65;
 }
 
-/* ---------- STRATA — o corte geológico das 3 secções ---------- */
+/* ---------- STRATA ---------- */
 
 .strata{
     max-width:1100px;
@@ -200,8 +226,14 @@ a{ color:inherit; }
     transition:.4s cubic-bezier(.2,.8,.2,1);
 }
 
-.stratum:first-child{ border-top:none; border-radius:20px 20px 0 0; }
-.stratum:last-child{ border-radius:0 0 20px 20px; }
+.stratum:first-child{
+    border-top:none;
+    border-radius:20px 20px 0 0;
+}
+
+.stratum:last-child{
+    border-radius:0 0 20px 20px;
+}
 
 .stratum .label{
     position:relative;
@@ -245,9 +277,15 @@ a{ color:inherit; }
     transition:.3s ease;
 }
 
-.stratum .go svg{ width:16px; height:16px; transition:.3s ease; }
+.stratum .go svg{
+    width:16px;
+    height:16px;
+    transition:.3s ease;
+}
 
-.stratum:hover .go svg{ transform:translateX(4px); }
+.stratum:hover .go svg{
+    transform:translateX(4px);
+}
 
 .stratum::before{
     content:'';
@@ -257,46 +295,143 @@ a{ color:inherit; }
     z-index:0;
 }
 
-.stratum:hover{ padding-left:56px; }
-
-/* cidades — camada superior: paisagem/território */
-.stratum.cidades{ background:linear-gradient(180deg,var(--cidades-deep),#141c0e); }
-.stratum.cidades::before{
-    background-image:repeating-linear-gradient(100deg, rgba(183,201,138,.10) 0 2px, transparent 2px 34px);
+.stratum:hover{
+    padding-left:56px;
 }
-.stratum.cidades:hover{ background:linear-gradient(180deg,#2c3a1e,#141c0e); box-shadow:0 0 40px rgba(124,143,87,.25) inset; }
 
-/* património — camada intermédia: estrutura construída */
-.stratum.patrimonio{ background:linear-gradient(180deg,var(--patrimonio-deep),#0f1b2c); }
+/* CIDADES */
+
+.stratum.cidades{
+    background:linear-gradient(
+        180deg,
+        var(--cidades-deep),
+        #141c0e
+    );
+}
+
+.stratum.cidades::before{
+    background-image:repeating-linear-gradient(
+        100deg,
+        rgba(183,201,138,.10) 0 2px,
+        transparent 2px 34px
+    );
+}
+
+.stratum.cidades:hover{
+    background:linear-gradient(
+        180deg,
+        #2c3a1e,
+        #141c0e
+    );
+    box-shadow:0 0 40px rgba(124,143,87,.25) inset;
+}
+
+/* PATRIMÓNIO */
+
+.stratum.patrimonio{
+    background:linear-gradient(
+        180deg,
+        var(--patrimonio-deep),
+        #0f1b2c
+    );
+}
+
 .stratum.patrimonio::before{
     background-image:
-        linear-gradient(90deg, rgba(100,181,246,.12) 1px, transparent 1px);
+        linear-gradient(
+            90deg,
+            rgba(100,181,246,.12) 1px,
+            transparent 1px
+        );
     background-size:64px 100%;
 }
-.stratum.patrimonio:hover{ background:linear-gradient(180deg,#264875,#0f1b2c); box-shadow:0 0 40px rgba(33,150,243,.25) inset; }
 
-/* pradarias — camada mais superficial: vegetação, dunas e sapal */
-.stratum.pradarias{ background:linear-gradient(180deg,var(--pradarias-deep),#0c211d); }
-.stratum.pradarias::before{
-    background-image:repeating-linear-gradient(70deg, rgba(143,217,205,.12) 0 2px, transparent 2px 30px);
+.stratum.patrimonio:hover{
+    background:linear-gradient(
+        180deg,
+        #264875,
+        #0f1b2c
+    );
+    box-shadow:0 0 40px rgba(33,150,243,.25) inset;
 }
-.stratum.pradarias:hover{ background:linear-gradient(180deg,#184840,#0c211d); box-shadow:0 0 40px rgba(143,217,205,.25) inset; }
 
-/* minas — camada inferior: rocha e veios de mármore */
-.stratum.minas{ background:linear-gradient(180deg,var(--minas-deep),#1c1210); }
+/* PRADARIAS */
+
+.stratum.pradarias{
+    background:linear-gradient(
+        180deg,
+        var(--pradarias-deep),
+        #0c211d
+    );
+}
+
+.stratum.pradarias::before{
+    background-image:repeating-linear-gradient(
+        70deg,
+        rgba(143,217,205,.12) 0 2px,
+        transparent 2px 30px
+    );
+}
+
+.stratum.pradarias:hover{
+    background:linear-gradient(
+        180deg,
+        #184840,
+        #0c211d
+    );
+    box-shadow:0 0 40px rgba(143,217,205,.25) inset;
+}
+
+/* MINAS */
+
+.stratum.minas{
+    background:linear-gradient(
+        180deg,
+        var(--minas-deep),
+        #1c1210
+    );
+}
+
 .stratum.minas::before{
     background-image:
-        repeating-linear-gradient(115deg, rgba(232,201,189,.14) 0 1px, transparent 1px 22px),
-        repeating-linear-gradient(25deg, rgba(232,201,189,.08) 0 1px, transparent 1px 40px);
+        repeating-linear-gradient(
+            115deg,
+            rgba(232,201,189,.14) 0 1px,
+            transparent 1px 22px
+        ),
+        repeating-linear-gradient(
+            25deg,
+            rgba(232,201,189,.08) 0 1px,
+            transparent 1px 40px
+        );
 }
-.stratum.minas:hover{ background:linear-gradient(180deg,#4a332d,#1c1210); box-shadow:0 0 40px rgba(201,143,130,.25) inset; }
 
-.stratum.cidades .index{ color:var(--cidades-glow); }
-.stratum.patrimonio .index{ color:var(--patrimonio-glow); }
-.stratum.minas .index{ color:var(--minas-glow); }
-.stratum.pradarias .index{ color:var(--pradarias-glow); }
+.stratum.minas:hover{
+    background:linear-gradient(
+        180deg,
+        #4a332d,
+        #1c1210
+    );
+    box-shadow:0 0 40px rgba(201,143,130,.25) inset;
+}
 
-/* ---------- GRID / CARDS (usado nas páginas de categoria) ---------- */
+.stratum.cidades .index{
+    color:var(--cidades-glow);
+}
+
+.stratum.patrimonio .index{
+    color:var(--patrimonio-glow);
+}
+
+.stratum.minas .index{
+    color:var(--minas-glow);
+}
+
+.stratum.pradarias .index{
+    color:var(--pradarias-glow);
+}
+
+/* ---------- GRID / CARDS ---------- */
 
 .page-head{
     padding:64px 24px 20px;
@@ -351,7 +486,11 @@ a{ color:inherit; }
     content:'';
     position:absolute;
     inset:0;
-    background:linear-gradient(135deg,rgba(255,255,255,.08),transparent);
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        transparent
+    );
     pointer-events:none;
 }
 
@@ -382,32 +521,176 @@ a{ color:inherit; }
     transition:.3s ease;
 }
 
-/* variações de cor por secção, aplicadas via classe no <body> */
-body.theme-patrimonio .card:hover{ border-color:var(--patrimonio-glow); box-shadow:0 0 25px rgba(100,181,246,.35), 0 0 60px rgba(100,181,246,.15); }
-body.theme-patrimonio .card-button{ background:linear-gradient(135deg,var(--patrimonio-mid),var(--patrimonio-glow)); box-shadow:0 0 15px rgba(33,203,243,.4); }
-body.theme-patrimonio .card-button:hover{ transform:scale(1.05); box-shadow:0 0 25px rgba(33,203,243,.8); }
-body.theme-patrimonio .page-head .eyebrow{ color:var(--patrimonio-glow); }
+/* ---------- PATRIMÓNIO ---------- */
 
-body.theme-minas{ background:radial-gradient(circle at top left, var(--minas-deep) 0%, transparent 32%), radial-gradient(circle at bottom right, #6b4c43 0%, transparent 28%), var(--ink); }
-body.theme-minas .card:hover{ border-color:var(--minas-glow); box-shadow:0 0 25px rgba(201,143,130,.35), 0 0 60px rgba(201,143,130,.15); }
-body.theme-minas .card-button{ background:linear-gradient(135deg,var(--minas-mid),var(--minas-glow)); color:#3a2c29; box-shadow:0 0 15px rgba(201,143,130,.4); }
-body.theme-minas .card-button:hover{ transform:scale(1.05); box-shadow:0 0 25px rgba(201,143,130,.8); }
-body.theme-minas .page-head .eyebrow{ color:var(--minas-glow); }
+body.theme-patrimonio .card:hover{
+    border-color:var(--patrimonio-glow);
+    box-shadow:
+        0 0 25px rgba(100,181,246,.35),
+        0 0 60px rgba(100,181,246,.15);
+}
 
-body.theme-cidades{ background:radial-gradient(circle at top left, var(--cidades-deep) 0%, transparent 32%), radial-gradient(circle at bottom right, #4b5b32 0%, transparent 28%), var(--ink); }
-body.theme-cidades .card:hover{ border-color:var(--cidades-glow); box-shadow:0 0 25px rgba(183,201,138,.35), 0 0 60px rgba(183,201,138,.15); }
-body.theme-cidades .card-button{ background:linear-gradient(135deg,var(--cidades-mid),var(--cidades-glow)); color:#1c2413; box-shadow:0 0 15px rgba(183,201,138,.4); }
-body.theme-cidades .card-button:hover{ transform:scale(1.05); box-shadow:0 0 25px rgba(183,201,138,.8); }
-body.theme-cidades .page-head .eyebrow{ color:var(--cidades-glow); }
+body.theme-patrimonio .card-button{
+    background:linear-gradient(
+        135deg,
+        var(--patrimonio-mid),
+        var(--patrimonio-glow)
+    );
+    box-shadow:0 0 15px rgba(33,203,243,.4);
+}
 
-body.theme-pradarias{ background:radial-gradient(circle at top left, var(--pradarias-deep) 0%, transparent 32%), radial-gradient(circle at bottom right, #2a5f56 0%, transparent 28%), var(--ink); }
-body.theme-pradarias .card:hover{ border-color:var(--pradarias-glow); box-shadow:0 0 25px rgba(143,217,205,.35), 0 0 60px rgba(143,217,205,.15); }
-body.theme-pradarias .card-button{ background:linear-gradient(135deg,var(--pradarias-mid),var(--pradarias-glow)); color:#0c211d; box-shadow:0 0 15px rgba(143,217,205,.4); }
-body.theme-pradarias .card-button:hover{ transform:scale(1.05); box-shadow:0 0 25px rgba(143,217,205,.8); }
-body.theme-pradarias .page-head .eyebrow{ color:var(--pradarias-glow); }
+body.theme-patrimonio .card-button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(33,203,243,.8);
+}
 
-/* estado "brevemente" para categorias ainda sem projetos publicados */
-.card.placeholder{ opacity:.55; }
+body.theme-patrimonio .page-head .eyebrow{
+    color:var(--patrimonio-glow);
+}
+
+/* ---------- MINAS ---------- */
+
+body.theme-minas{
+    background:
+        radial-gradient(
+            circle at top left,
+            var(--minas-deep) 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #6b4c43 0%,
+            transparent 28%
+        ),
+        var(--ink);
+}
+
+body.theme-minas .card:hover{
+    border-color:var(--minas-glow);
+    box-shadow:
+        0 0 25px rgba(201,143,130,.35),
+        0 0 60px rgba(201,143,130,.15);
+}
+
+body.theme-minas .card-button{
+    background:linear-gradient(
+        135deg,
+        var(--minas-mid),
+        var(--minas-glow)
+    );
+    color:#3a2c29;
+    box-shadow:0 0 15px rgba(201,143,130,.4);
+}
+
+body.theme-minas .card-button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(201,143,130,.8);
+}
+
+body.theme-minas .page-head .eyebrow{
+    color:var(--minas-glow);
+}
+
+/* ---------- CIDADES ---------- */
+
+body.theme-cidades{
+    background:
+        radial-gradient(
+            circle at top left,
+            var(--cidades-deep) 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #4b5b32 0%,
+            transparent 28%
+        ),
+        var(--ink);
+}
+
+body.theme-cidades .card:hover{
+    border-color:var(--cidades-glow);
+    box-shadow:
+        0 0 25px rgba(183,201,138,.35),
+        0 0 60px rgba(183,201,138,.15);
+}
+
+body.theme-cidades .card-button{
+    background:linear-gradient(
+        135deg,
+        var(--cidades-mid),
+        var(--cidades-glow)
+    );
+    color:#1c2413;
+    box-shadow:0 0 15px rgba(183,201,138,.4);
+}
+
+body.theme-cidades .card-button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(183,201,138,.8);
+}
+
+body.theme-cidades .page-head .eyebrow{
+    color:var(--cidades-glow);
+}
+
+/* ---------- PRADARIAS ---------- */
+
+body.theme-pradarias{
+    background:
+        radial-gradient(
+            circle at top left,
+            var(--pradarias-deep) 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #2a5f56 0%,
+            transparent 28%
+        ),
+        var(--ink);
+}
+
+body.theme-pradarias .card{
+    max-width:350px;
+    margin:0 auto;
+}
+
+body.theme-pradarias .card:hover{
+    border-color:var(--pradarias-glow);
+    box-shadow:
+        0 0 25px rgba(143,217,205,.35),
+        0 0 60px rgba(143,217,205,.15);
+}
+
+body.theme-pradarias .card-button{
+    display:inline-block;
+    width:auto;
+    padding:12px 24px;
+    background:linear-gradient(
+        135deg,
+        var(--pradarias-mid),
+        var(--pradarias-glow)
+    );
+    color:#0c211d;
+    box-shadow:0 0 15px rgba(143,217,205,.4);
+}
+
+body.theme-pradarias .card-button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px rgba(143,217,205,.8);
+}
+
+body.theme-pradarias .page-head .eyebrow{
+    color:var(--pradarias-glow);
+}
+
+/* ---------- PLACEHOLDER ---------- */
+
+.card.placeholder{
+    opacity:.55;
+}
+
 .card.placeholder .card-button{
     background:transparent !important;
     border:1px dashed rgba(255,255,255,.3);
@@ -416,6 +699,7 @@ body.theme-pradarias .page-head .eyebrow{ color:var(--pradarias-glow); }
     cursor:default;
     pointer-events:none;
 }
+
 .card.placeholder .card-title::after{
     content:'Brevemente';
     display:block;
@@ -458,11 +742,35 @@ footer{
     letter-spacing:.02em;
 }
 
+/* ---------- RESPONSIVE ---------- */
+
 @media (max-width:640px){
-    .geods-nav{ padding:14px 18px; }
-    .geods-links a span.txt{ display:none; }
-    .geods-links a{ padding:9px 11px; }
-    .stratum{ padding:32px 24px; flex-direction:column; align-items:flex-start; gap:16px; }
-    .stratum .go{ align-self:flex-end; }
-    .stratum:hover{ padding-left:24px; }
+
+    .geods-nav{
+        padding:14px 18px;
+    }
+
+    .geods-links a span.txt{
+        display:none;
+    }
+
+    .geods-links a{
+        padding:9px 11px;
+    }
+
+    .stratum{
+        padding:32px 24px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:16px;
+    }
+
+    .stratum .go{
+        align-self:flex-end;
+    }
+
+    .stratum:hover{
+        padding-left:24px;
+    }
+
 }
